@@ -1,10 +1,13 @@
 <?php
+
 namespace app\index\controller;
 
-class Index
+use app\index\controller\Base;
+
+class Index extends Base
 {
     public function index()
     {
-        return view();
+        return $this->fetch();
     }
 }
