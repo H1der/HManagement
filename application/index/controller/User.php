@@ -2,11 +2,11 @@
 
 namespace app\index\controller;
 
-use app\index\controller\Base;
+use think\Controller;
 use \app\index\model\User as UserModel;
 use think\Session;
 
-class User extends Base
+class User extends Controller
 {
     public function login()
     {
@@ -26,8 +26,8 @@ class User extends Base
     public function logout()
     {
         //注销
-        Session::delete('id');
-        Session::delete('name');
+        Session::delete('user.id');
+        Session::delete('user.name');
         $this->success('退出成功', 'user/login');
     }
 }
