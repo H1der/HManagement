@@ -31,17 +31,21 @@ class User extends Model
         }
 
         //对比用户名和密码是否正确
-        $userInfo = $this->where('name', $data['name'])->where('password', md5($data['password']))->find();
+        $user = $this->where('name', $data['name'])->where('password', md5($data['password']))->find();
 
         //登陆失败
-        if (!$userInfo) {
+        if (!$user) {
             return ['valid' => 0, 'msg' => '用户名或密码错误'];
         }
 
-        session('user.id', $userInfo['id']);
-        session('user.name', $userInfo['name']);
+        $user->setInc('login_count');
+
+        session('user_id', $user['id']);
+        session('user_info', $user->getData());
+
+
+
         return ['valid' => 1, 'msg' => '登陆成功'];
 
     }
-
 }

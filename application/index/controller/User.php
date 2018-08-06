@@ -19,6 +19,7 @@ class User extends Controller
                 exit;
             }
         }
+
         return $this->fetch();
     }
 
@@ -26,8 +27,9 @@ class User extends Controller
     public function logout()
     {
         //注销
-        Session::delete('user.id');
-        Session::delete('user.name');
+        Session::delete('user_id');
+        Session::delete('user_info');
         $this->success('退出成功', 'user/login');
     }
+
 }
