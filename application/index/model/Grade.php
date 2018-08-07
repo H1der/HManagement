@@ -9,6 +9,8 @@ use traits\model\SoftDelete;
 
 class Grade extends Model
 {
+    protected $pk = 'id';
+    protected $table = 'edu_grade';
     use SoftDelete;
 
     //设置当前表默认日期时间显示格式
@@ -27,10 +29,10 @@ class Grade extends Model
     // 定义自动完成的属性
     protected $insert = ['status' => 1];
 
-    public function teacher()
-    {
-        return $this->hasOne('Teacher');
-    }
+//    public function teacher()
+//    {
+//        return $this->hasOne('Teacher');
+//    }
 
     public function student()
     {
