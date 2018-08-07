@@ -43,4 +43,27 @@ class Grade extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+        //获取到要编辑的班级ID
+        $grade_id = $request->param('id');
+
+        //根据ID进行查询
+        $result = \app\index\model\Grade::get($grade_id);
+
+        //关联查询,获取与当前班级对应的教师姓名
+//        $result -> teacher = $result -> teacher->name;
+
+        //给当前页面seo变量赋值
+        $this->assign('title', '编辑班级');
+        $this->assign('keywords', 'php.cn');
+        $this->assign('desc', 'PHP中文网ThinkPHP5开发实战课程');
+
+        //给当前编辑模板赋值
+        $this->assign('grade_info', $result);
+
+        //渲染编辑模板
+        return $this->fetch('edit');
+    }
+
 }
