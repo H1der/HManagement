@@ -10,7 +10,7 @@ use traits\model\SoftDelete;
 class Grade extends Model
 {
     protected $pk = 'id';
-    protected $table = 'edu_grade';
+    protected $table = 'grade';
     use SoftDelete;
 
     //设置当前表默认日期时间显示格式

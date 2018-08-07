@@ -33,13 +33,13 @@ class Grade extends Controller
         $grade_id = $request->param('id');
 
         //查询
-        $result = GradeModel::get($grade_id);
+        $result = \app\index\model\Grade::get($grade_id);
 
         //启用和禁用处理
         if ($result->getData('status') == 1) {
-            GradeModel::update(['status' => 0], ['id' => $grade_id]);
+            \app\index\model\Grade::update(['status' => 0], ['id' => $grade_id]);
         } else {
-            GradeModel::update(['status' => 1], ['id' => $grade_id]);
+            \app\index\model\Grade::update(['status' => 1], ['id' => $grade_id]);
         }
     }
 
