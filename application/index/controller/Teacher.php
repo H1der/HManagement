@@ -123,4 +123,10 @@ class Teacher extends Controller
         }
         return ['status' => $status, 'message' => $message];
     }
+
+    public function delete(Request $request)
+    {
+        $user_id = $request->param('id');
+        \app\index\model\Teacher::destroy($user_id);
+    }
 }

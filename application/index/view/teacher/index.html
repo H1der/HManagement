@@ -166,7 +166,7 @@
     /*用户-删除*/
     function member_del(obj, id) {
         //请求服务器脚本处理删除
-        $.get("{:url('grade/delete')}", {id: id});
+        $.get("{:url('teacher/delete')}", {id: id});
         layer.confirm('确认要删除吗？', function (index) {
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
