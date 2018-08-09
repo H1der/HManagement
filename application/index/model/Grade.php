@@ -24,10 +24,10 @@ class Grade extends Model
     // 定义自动完成的属性
     protected $insert = ['status' => 1];
 
-//    public function teacher()
-//    {
-//        return $this->hasOne('Teacher');
-//    }
+    public function teacher()
+    {
+        return $this->hasOne('Teacher');
+    }
 
     public function student()
     {

@@ -1,9 +1,9 @@
 {extend name='public/base' /}
 
 {block name='seo'}
-<title>教师列表</title>
-<meta name="keywords" content="{$keywords|default='关键字'}">
-<meta name="description" content="{$desc|default='描述'}">
+<title>会员列表 - 会员管理 - H-ui.admin v3.0</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 {/block}
 
 
@@ -13,8 +13,8 @@
     <nav class="breadcrumb">
         <i class="Hui-iconfont">&#xe67f;</i>
         首页 <span class="c-gray en">&gt;</span>
-        教师管理 <span class="c-gray en">&gt;</span>
-        教师列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+        班级管理 <span class="c-gray en">&gt;</span>
+        班级列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
                href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
     </nav>
     <div class="Hui-article">
@@ -24,11 +24,11 @@
 				<span class="l">
 					<a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius">
 						<i class="Hui-iconfont">&#xe6e2;</i>
-						批量恢复
+						批量删除
 					</a>
-					<a href="javascript:;" onclick="member_add('添加教师','{:url(" teacher/teacherAdd")}','','510')" class="btn btn-primary radius">
+					<a href="javascript:;" onclick="member_add('添加班级','{:url(" grade/add")}','','510')" class="btn btn-primary radius">
 						<i class="Hui-iconfont">&#xe600;</i>
-						添加教师
+						添加班级
                     </a>
 				</span>
                 <span class="r">共有数据：<strong>{$count}</strong> 条</span>
@@ -49,7 +49,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {volist name='teacherList' id='vo'}
+                    {foreach name='teacherList' item='vo'}
                     <tr class="text-c">
 
                         <td>{$vo.id}</td>
@@ -77,11 +77,11 @@
                             </a>
                             {else /}
                             <a style="text-decoration:none" onClick="member_start(this,'{$vo.id}')" href="javascript:;"
-                               title="启用">
+                               title="停用">
                                 <i class="Hui-iconfont">&#xe615;</i>
                             </a>
                             {/if}
-                            <a title="编辑" href="javascript:;" onclick="member_edit('教师编辑','{:url(" teacher/teacherEdit",["id"=>$vo["id"]])}','','510')"
+                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','{:url(" grade/edit",["id"=>$vo["id"]])}','','510')"
                             class="ml-5" style="text-decoration:none">
                             <i class="Hui-iconfont">&#xe6df;</i>
                             </a>
@@ -91,7 +91,7 @@
                             </a>
                         </td>
                     </tr>
-                    {/volist}
+                    {/foreach}
                     </tbody>
                 </table>
             </div>
@@ -165,7 +165,8 @@
 
     /*用户-删除*/
     function member_del(obj, id) {
-        $.get("{:url('teacher/deleteTeacher')}", {id: id});
+        //请求服务器脚本处理删除
+        $.get("{:url('grade/delete')}", {id: id});
         layer.confirm('确认要删除吗？', function (index) {
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});
@@ -175,7 +176,7 @@
     //批量恢复(原模板中没有,自己动手,丰衣足食)
     function unDelete() {
         layer.confirm('确认要恢复吗？', function () {
-            $.get("{:url('teacher/unDelete')}");
+            $.get("{:url('grade/unDelete')}");
 
             layer.msg('已恢复!', {icon: 1, time: 1000}); //消息弹层1秒后消失
             window.location.reload(); //重新加载页面,显示所有数据
