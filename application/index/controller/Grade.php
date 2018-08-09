@@ -23,6 +23,7 @@ class Grade extends Controller
         $gradeList = db('grade')->select();
 //        $count = count($this->db);
         $count = \app\index\model\Grade::count();
+        $this->assign('title', '班级列表');
         $this->assign('gradeList', $gradeList);
         $this->assign('count', $count);
         return $this->fetch();

@@ -1,7 +1,7 @@
 {extend name='public/base' /}
 
 {block name='seo'}
-<title>会员列表 - 会员管理 - H-ui.admin v3.0</title>
+<title>{$title|default="标题"}</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 {/block}
@@ -26,7 +26,7 @@
 						<i class="Hui-iconfont">&#xe6e2;</i>
 						批量删除
 					</a>
-					<a href="javascript:;" onclick="member_add('添加班级','{:url(" grade/add")}','','510')" class="btn btn-primary radius">
+					<a href="javascript:;" onclick="member_add('添加班级','{:url(" teacher/add")}','','510')" class="btn btn-primary radius">
 						<i class="Hui-iconfont">&#xe600;</i>
 						添加班级
                     </a>
@@ -81,7 +81,7 @@
                                 <i class="Hui-iconfont">&#xe615;</i>
                             </a>
                             {/if}
-                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','{:url(" grade/edit",["id"=>$vo["id"]])}','','510')"
+                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','{:url(" teacher/edit",["id"=>$vo["id"]])}','','510')"
                             class="ml-5" style="text-decoration:none">
                             <i class="Hui-iconfont">&#xe6df;</i>
                             </a>
