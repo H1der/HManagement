@@ -3,9 +3,7 @@
 namespace app\index\model;
 
 
-use app\index\validate\Login;
 use think\Model;
-use traits\model\SoftDelete;
 
 class Grade extends Model
 {
