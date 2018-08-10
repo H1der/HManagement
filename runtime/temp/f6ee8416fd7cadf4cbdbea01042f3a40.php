@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\student\index.html";i:1533886858;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\student\index.html";i:1533887129;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -327,7 +327,7 @@
 
     /*用户-删除*/
     function member_del(obj, id) {
-        $.get("<?php echo url('student/deleteStudent'); ?>", {id: id});
+        $.get("<?php echo url('student/delete'); ?>", {id: id});
         layer.confirm('确认要删除吗？', function (index) {
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});

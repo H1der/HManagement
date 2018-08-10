@@ -24,6 +24,7 @@ class Student extends Controller
         $this->assign('title', '学生列表');
         $this->assign('studentList', $studentList);
         $this->assign('count', $count);
+        //todo:批量删除
 
         return $this->fetch();
     }
@@ -114,5 +115,12 @@ class Student extends Controller
             $message = '恭喜, 添加成功~~';
         }
         return ['status' => $status, 'message' => $message];
+    }
+
+    //学生删除
+    public function delete(Request $request)
+    {
+        $user_id = $request->param('id');
+        \app\index\model\Student::destroy($user_id);
     }
 }
