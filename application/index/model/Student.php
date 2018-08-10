@@ -7,6 +7,10 @@ use think\Model;
 
 class Student extends Model
 {
+    protected $pk = 'id';
+    protected $table = 'student';
+
+
     //设置当前表默认日期时间显示格式
     protected $dateFormat = 'Y/m/d';
 
