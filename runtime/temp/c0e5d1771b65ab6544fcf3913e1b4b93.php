@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:76:"G:\wamp64\www\HManagement\public/../application/index\view\student\edit.html";i:1533886453;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\student\add.html";i:1533886889;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -48,7 +48,7 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
             <div class="formControls col-xs-8 col-sm-9">
 
-                <input type="text" class="input-text" value="<?php echo $student_info['name']; ?>" placeholder="" id="name" name="name">
+                <input type="text" class="input-text" value="" placeholder="" id="name" name="name">
             </div>
         </div>
 
@@ -70,23 +70,21 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>年龄：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" placeholder="年龄" name="age" id="age" value="<?php echo $student_info['age']; ?>">
+                <input type="number" class="input-text" placeholder="年龄" name="age" id="age" value="">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text " placeholder="手机号码" name="mobile" id="mobile"
-                       value="<?php echo $student_info['mobile']; ?>">
+                <input type="text" class="input-text " placeholder="手机号码" name="mobile" id="mobile" value="">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text " placeholder="邮箱" name="email" id="email"
-                       value="<?php echo $student_info['email']; ?>">
+                <input type="email" class="input-text " placeholder="邮箱" name="email" id="email" value="">
             </div>
         </div>
 
@@ -94,8 +92,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>入学时间：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text " placeholder="入学时间" name="start_time" id="start_time"
-                       value="<?php echo $student_info['start_time']; ?>">
+                <input type="date" class="input-text " placeholder="入学时间" name="start_time" id="start_time" value="">
             </div>
         </div>
 
@@ -118,23 +115,16 @@
             <label class="form-label col-xs-4 col-sm-3">启用状态：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
 				<select class="select" name="status" size="1">
-					<!--根据当前用户实际状态,动态显示默认值-->
-					<?php if($student_info['status'] == '1'): ?>
+
 					<option value="1" selected>启用</option>
 					<option value="0">不启用</option>
-					<?php else: ?>
-					<option value="1">启用</option>
-					<option value="0" selected>不启用</option>
-					<?php endif; ?>
+
 
 				</select>
 				</span>
             </div>
         </div>
 
-
-        <!--将当前记录的id做为隐藏域发送到服务器-->
-        <input type="hidden" value="<?php echo $student_info['id']; ?>" name="id">
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
@@ -176,7 +166,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "<?php echo url('student/doEdit'); ?>",
+                url: "<?php echo url('student/doAdd'); ?>",
                 data: $("#form-student-edit").serialize(),
                 dataType: "json",
                 success: function (data) {

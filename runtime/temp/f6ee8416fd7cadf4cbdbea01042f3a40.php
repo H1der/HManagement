@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\student\index.html";i:1533884874;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\student\index.html";i:1533886858;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -15,11 +15,11 @@
     <script type="text/javascript" src="/static/lib/html5.js"></script>
     <script type="text/javascript" src="/static/lib/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/static/h-ui/css/H-ui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/static/h-ui.admin/css/H-ui.admin.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/lib/Hui-iconfont/1.0.8/iconfont.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/static/h-ui.admin/skin/default/skin.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/static/h-ui.admin/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/static/static/h-ui.admin/skin/default/skin.css" />
+    <link rel="stylesheet" type="text/css" href="/static/static/h-ui.admin/css/style.css" />
     <!--[if IE 6]>
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
@@ -27,9 +27,9 @@
     <!--/meta 作为公共模版分离出去-->
 
 
-    <title><?php echo(isset($title) && ($title !== '') ? $title : "标题"); ?></title>
-    <meta name="keywords" content="<?php echo(isset($keywords) && ($keywords !== '') ? $keywords : '关键字'); ?>">
-    <meta name="description" content="<?php echo(isset($desc) && ($desc !== '') ? $desc : '描述'); ?>">
+<title><?php echo (isset($title) && ($title !== '')?$title:"标题"); ?></title>
+<meta name="keywords" content="<?php echo (isset($keywords) && ($keywords !== '')?$keywords:'关键字'); ?>">
+<meta name="description" content="<?php echo (isset($desc) && ($desc !== '')?$desc:'描述'); ?>">
 
 
 </head>
@@ -47,16 +47,16 @@
             <nav class="nav navbar-nav">
                 <ul class="cl">
                     <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i
-                                    class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
+                            class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i
-                                            class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+                                    class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
                             <li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i
-                                            class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+                                    class="Hui-iconfont">&#xe613;</i> 图片</a></li>
                             <li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i
-                                            class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+                                    class="Hui-iconfont">&#xe620;</i> 产品</a></li>
                             <li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i
-                                            class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+                                    class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,9 +64,8 @@
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
                     <li>超级管理员</li>
-                    <li class="dropDown dropDown_hover"><a href="#"
-                                                           class="dropDown_A"><?php echo session('user.name'); ?> <i
-                                    class="Hui-iconfont">&#xe6d5;</i></a>
+                    <li class="dropDown dropDown_hover"><a href="#" class="dropDown_A"><?php echo session('user.name'); ?> <i
+                            class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <!--<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>-->
                             <!--<li><a href="#">切换账户</a></li>-->
@@ -93,6 +92,7 @@
     </div>
 </header>
 <!--/_header 作为公共模版分离出去-->
+
 
 
 <!--_menu 作为公共模版分离出去-->
@@ -147,6 +147,8 @@
 <!--/_menu 作为公共模版分离出去-->
 
 
+
+
 <section class="Hui-article-box">
     <nav class="breadcrumb">
         <i class="Hui-iconfont">&#xe67f;</i>
@@ -164,8 +166,7 @@
 						<i class="Hui-iconfont">&#xe6e2;</i>
 						批量恢复
 					</a>
-					<a href="javascript:;" onclick="member_add('添加学生','<?php echo url("student/add"); ?>','','510')"
-                       class="btn btn-primary radius">
+					<a href="javascript:;" onclick="member_add('添加学生','<?php echo url("student/add"); ?>','','510')" class="btn btn-primary radius">
 						<i class="Hui-iconfont">&#xe600;</i>
 						添加学生
                     </a>
@@ -189,60 +190,53 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if (is_array($studentList) || $studentList instanceof \think\Collection || $studentList instanceof \think\Paginator): $i = 0;
-                        $__LIST__ = $studentList;
-                        if (count($__LIST__) == 0) : echo ""; else: foreach ($__LIST__ as $key => $vo): $mod = ($i % 2);
-                            ++$i; ?>
-                            <tr class="text-c">
+                    <?php if(is_array($studentList) || $studentList instanceof \think\Collection || $studentList instanceof \think\Paginator): $i = 0; $__LIST__ = $studentList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                    <tr class="text-c">
 
-                                <td><?php echo $vo['id']; ?></td>
-                                <td><?php echo $vo['name']; ?></td>
-                                <td><?php echo $vo['sex']; ?></td>
-                                <td><?php echo $vo['age']; ?></td>
-                                <td><?php echo $vo['mobile']; ?></td>
-                                <td><?php echo $vo['email']; ?></td>
-                                <td><?php echo $vo['start_time']; ?></td>
-                                <td><?php echo $vo['grade']; ?></td>
+                        <td><?php echo $vo['id']; ?></td>
+                        <td><?php echo $vo['name']; ?></td>
+                        <td><?php echo $vo['sex']; ?></td>
+                        <td><?php echo $vo['age']; ?></td>
+                        <td><?php echo $vo['mobile']; ?></td>
+                        <td><?php echo $vo['email']; ?></td>
+                        <td><?php echo $vo['start_time']; ?></td>
+                        <td><?php echo $vo['grade']; ?></td>
 
 
-                                <td class="td-status">
-                                    <!--根据当前班级表中status值来确定显示内容-->
-                                    <?php if ($vo['status'] == 1): ?>
-                                        <span class="label label-success radius">已启用</span>
-                                    <?php else: ?>
-                                        <span class="label radius">已停用</span>
-                                    <?php endif; ?>
+                        <td class="td-status">
+                            <!--根据当前班级表中status值来确定显示内容-->
+                            <?php if($vo['status'] == 1): ?>
+                            <span class="label label-success radius">已启用</span>
+                            <?php else: ?>
+                            <span class="label radius">已停用</span>
+                            <?php endif; ?>
 
-                                </td>
+                        </td>
 
 
-                                <td class="td-manage">
-                                    <?php if ($vo['status'] == 1): ?>
-                                        <a style="text-decoration:none"
-                                           onClick="member_stop(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
-                                           title="停用">
-                                            <i class="Hui-iconfont">&#xe631;</i>
-                                        </a>
-                                    <?php else: ?>
-                                        <a style="text-decoration:none"
-                                           onClick="member_start(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
-                                           title="启用">
-                                            <i class="Hui-iconfont">&#xe615;</i>
-                                        </a>
-                                    <?php endif; ?>
-                                    <a title="编辑" href="javascript:;"
-                                       onclick="member_edit('学生编辑','<?php echo url("student/edit", ["id" => $vo["id"]]); ?>','','510')"
-                                       class="ml-5" style="text-decoration:none">
-                                        <i class="Hui-iconfont">&#xe6df;</i>
-                                    </a>
-                                    <a title="删除" href="javascript:;"
-                                       onclick="member_del(this,'<?php echo $vo['id']; ?>')" class="ml-5"
-                                       style="text-decoration:none">
-                                        <i class="Hui-iconfont">&#xe6e2;</i>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; endif; else: echo "";endif; ?>
+                        <td class="td-manage">
+                            <?php if($vo['status'] == 1): ?>
+                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                               title="停用">
+                                <i class="Hui-iconfont">&#xe631;</i>
+                            </a>
+                            <?php else: ?>
+                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                               title="启用">
+                                <i class="Hui-iconfont">&#xe615;</i>
+                            </a>
+                            <?php endif; ?>
+                            <a title="编辑" href="javascript:;" onclick="member_edit('学生编辑','<?php echo url("student/edit",["id"=>$vo["id"]]); ?>','','510')"
+                            class="ml-5" style="text-decoration:none">
+                            <i class="Hui-iconfont">&#xe6df;</i>
+                            </a>
+                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $vo['id']; ?>')" class="ml-5"
+                               style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe6e2;</i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -261,12 +255,14 @@
 </section>
 
 
+
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/static/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/static/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="/static/static/h-ui.admin/js/H-ui.admin.page.js"></script>
 <!--/_footer /作为公共模版分离出去-->
+
 
 
 <!--请在下方写此页面业务相关的脚本-->
