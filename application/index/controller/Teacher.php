@@ -20,7 +20,7 @@ class Teacher extends Controller
     //教师列表首页
     public function index()
     {
-        $teacherList = db('teacher')->select();
+        $teacherList = \app\index\model\Teacher::all();
 //        $count = count($this->db);
         $count = \app\index\model\Teacher::count();
 //        dump($teacherList);
@@ -28,6 +28,10 @@ class Teacher extends Controller
         $this->assign('teacherList', $teacherList);
         $this->assign('count', $count);
         //todo:入职时间,学历,负责班级
+        //给结果集对象数组中的每个模板对象添加班级关联数据
+        foreach ($teacherList as $value) {
+            $value->grade = $value->grade->name;
+        }
         return $this->fetch();
     }
 

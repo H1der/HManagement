@@ -28,12 +28,6 @@ class Teacher extends Model
     // 定义自动完成的属性
     protected $insert = ['status' => 1];
 
-    //设置与grade表的反关联
-    public function grade()
-    {
-        // 教师表teacher BELONGS TO 关联班级grade
-        return $this->belongsTo('Grade');
-    }
 
     public function getDegreeAttr($value)
     {
@@ -44,5 +38,12 @@ class Teacher extends Model
         ];
         //根据表中数据返回对应值
         return $degree[$value];
+    }
+
+    //设置与grade表的反关联
+    public function grade()
+    {
+        // 教师表teacher BELONGS TO 关联班级grade
+        return $this->belongsTo('Grade');
     }
 }

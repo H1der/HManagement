@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\teacher\index.html";i:1533886972;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\teacher\index.html";i:1534232031;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -153,8 +153,8 @@
     <nav class="breadcrumb">
         <i class="Hui-iconfont">&#xe67f;</i>
         首页 <span class="c-gray en">&gt;</span>
-        班级管理 <span class="c-gray en">&gt;</span>
-        班级列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+        教师管理 <span class="c-gray en">&gt;</span>
+        教师列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
                href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
     </nav>
     <div class="Hui-article">
@@ -168,7 +168,7 @@
 					</a>
 					<a href="javascript:;" onclick="member_add('添加班级','<?php echo url("teacher/add"); ?>','','510')" class="btn btn-primary radius">
 						<i class="Hui-iconfont">&#xe600;</i>
-						添加班级
+						添加教师
                     </a>
 				</span>
                 <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
@@ -198,7 +198,7 @@
                         <td><?php echo $vo['school']; ?></td>
                         <td><?php echo $vo['mobile']; ?></td>
                         <td><?php echo $vo['hiredate']; ?></td>
-                        <td><?php echo $vo['grade_id']; ?></td>
+                        <td><?php echo $vo['grade']; ?></td>
 
                         <td class="td-status">
                             <!--根据当前班级表中status值来确定显示内容-->

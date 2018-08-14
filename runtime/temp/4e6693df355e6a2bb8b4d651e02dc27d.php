@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\grade\index.html";i:1533974785;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\grade\index.html";i:1534232152;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1533884537;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1533884919;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -182,6 +182,7 @@
                         <th width="40">学制</th>
                         <th width="90">学费</th>
                         <th width="150">开班时间</th>
+                        <th width="100">班主任</th>
                         <th width="70">状态</th>
                         <th width="100">操作</th>
                     </tr>
@@ -193,8 +194,8 @@
                         <td><?php echo $vo['name']; ?></td>
                         <td><?php echo $vo['length']; ?></td>
                         <td><?php echo $vo['price']; ?></td>
-                        <td><?php echo date('Y/m/d',$vo['create_time']); ?></td>
-
+                        <td><?php echo $vo['create_time']; ?></td>
+                        <td><?php echo $vo['teacher']; ?></td>
                         <td class="td-status">
                             <!--根据当前班级表中status值来确定显示内容-->
                             <?php if($vo['status'] == 1): ?>

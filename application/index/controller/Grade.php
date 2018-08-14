@@ -20,9 +20,12 @@ class Grade extends Controller
     //班级列表首页
     public function index()
     {
-        $gradeList = db('grade')->select();
+        $gradeList = \app\index\model\Grade::all();
 //        $count = count($this->db);
         $count = \app\index\model\Grade::count();
+        foreach ($gradeList as $value) {
+            $value->teacher = isset($value->teacher->name)? $value->teacher->name : '<span style="color:red;">未分配</span>';
+        }
         $this->assign('title', '班级列表');
         $this->assign('gradeList', $gradeList);
         $this->assign('count', $count);

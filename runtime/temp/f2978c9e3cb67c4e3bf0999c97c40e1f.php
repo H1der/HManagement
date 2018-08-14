@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"G:\wamp64\www\HManagement\public/../application/index\view\grade\add.html";i:1534232399;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\teacher\add.html";i:1533806054;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -43,42 +43,23 @@
 <article class="cl pd-20">
 
 
-    <form action="" method="post" class="form form-horizontal" id="form-grade-add">
+    <form action="" method="post" class="form form-horizontal" id="form-teacher-edit">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>班级：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
             <div class="formControls col-xs-8 col-sm-9">
 
-                <input  type="text" class="input-text" value="" placeholder="" id="name" name="name">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学制：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" autocomplete="off" value=""  placeholder="学制" id="length" name="length">
-            </div>
-        </div>
-
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学费：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" placeholder="学费" name="price" id="price" value="">
+                <input type="text" class="input-text" value="" placeholder="" id="name" name="name">
             </div>
         </div>
 
 
-        <!--添加时只可添加本表信息，关联表不可添加-->
-
-
-
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">启用状态：</label>
+            <label class="form-label col-xs-4 col-sm-3">学历：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-				<select class="select" name="status" size="1">
-
-					<option value="1" selected>启用</option>
-					<option value="0" >不启用</option>
-
-
+				<select class="select" name="degree" size="1">
+					<option value="1" selected>专科</option>
+					<option value="2">本科</option>
+					<option value="3">研究生</option>
 				</select>
 				</span>
             </div>
@@ -86,8 +67,59 @@
 
 
         <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>毕业学校：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" placeholder="毕业学校" name="school" id="school" value="">
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号码：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text " placeholder="手机号码" name="mobile" id="mobile" value="">
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>入职时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="date" class="input-text " placeholder="入职时间" name="hiredate" id="hiredate" value="">
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">负责班级：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+				<select class="select" name="grade_id" size="1">
+					<?php if(is_array($gradeList) || $gradeList instanceof \think\Collection || $gradeList instanceof \think\Paginator): $i = 0; $__LIST__ = $gradeList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo['id']; ?>" selected><?php echo $vo['name']; ?></option>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+					<option value="0" selected>不分配</option>
+
+				</select>
+				</span>
+            </div>
+        </div>
+
+
+        <!--添加数据的时间,就是入职时间-->
+
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">启用状态：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+				<select class="select" name="status" size="1">
+					<option value="1">启用</option>
+					<option value="0" selected>不启用</option>
+				  </select>
+				</span>
+            </div>
+        </div>
+
+        <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius disabled" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" id="submit" >
+                <input class="btn btn-primary radius disabled" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;"
+                       id="submit">
             </div>
         </div>
     </form>
@@ -123,8 +155,8 @@
         $("#submit").on("click", function (event) {
             $.ajax({
                 type: "POST",
-                url: "<?php echo url('grade/doAdd'); ?>",
-                data: $("#form-grade-add").serialize(),
+                url: "<?php echo url('teacher/doAdd'); ?>",
+                data: $("#form-teacher-edit").serialize(),
                 dataType: "json",
                 success: function (data) {
                     if (data.status == 1) {
