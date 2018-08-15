@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\index\index.html";i:1534319145;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1534317845;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:74:"G:\wamp64\www\HManagement\public/../application/index\view\user\index.html";i:1534319870;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1534319544;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -27,7 +27,7 @@
     <!--/meta 作为公共模版分离出去-->
 
 
-<title><?php echo (isset($title) && ($title !== '')?$title:'教学管理系统'); ?></title>
+<title><?php echo (isset($title) && ($title !== '')?$title:'标题'); ?></title>
 <meta name="keywords" content="<?php echo (isset($keywords) && ($keywords !== '')?$keywords:'关键字'); ?>">
 <meta name="description" content="<?php echo (isset($desc) && ($desc !== '')?$desc:'描述'); ?>">
 
@@ -106,7 +106,7 @@
         </dl>
 
         <dl id="menu-admin">
-            <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe62d;</i>管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="<?php echo url('user/index'); ?>" title="管理员列表">管理员列表</a></li>
@@ -123,49 +123,53 @@
 
 
 <section class="Hui-article-box">
-    <nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a>
-        <span class="c-999 en">&gt;</span>
-        <span class="c-666">我的桌面</span>
-        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
-           href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+        <span class="c-gray en">&gt;</span>
+        管理员管理
+        <span class="c-gray en">&gt;</span>
+        管理员列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
     <div class="Hui-article">
         <article class="cl pd-20">
-            <p class="f-20 text-success">欢迎使用教学管理系统</p>
-            <p>上次登录IP：<?php echo \think\Request::instance()->ip(); ?></p>
-            <p>登录时间：<?php echo date("Y-m-d H:i:s",time()); ?></p>
-            <table class="table table-border table-bordered table-bg mt-20">
+            <!--如果是admin显示用户数量,其它用户没必要显示-->
+            <?php if(\think\Session::get('user_info.name') == 'admin'): ?>
+                            <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
+            <?php endif; ?>
+            <table class="table table-border table-bordered table-bg">
                 <thead>
                 <tr>
-                    <th colspan="2" scope="col">服务器信息</th>
+                    <th scope="col" colspan="9">管理员列表</th>
+                </tr>
+                <tr class="text-c">
+                    <th width="40">ID</th>
+                    <th width="100">用户名</th>
+                    <th width="150">邮箱</th>
+                    <th width="100">角色</th>
+                    <th width="130">创建时间</th>
+                    <th width="100">是否已启用</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th width="30%">服务器计算机名</th>
-                    <td><span id="lbServerName"><?php echo \think\Request::instance()->host(); ?></span></td>
+
+                <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <tr class="text-c">
+                    <td><?php echo $vo['id']; ?></td>
+                    <td><?php echo $vo['name']; ?></td>
+                    <td><?php echo $vo['email']; ?></td>
+                    <td><?php echo $vo['role']; ?></td>
+                    <td><?php echo $vo['create_time']; ?></td>
+                    <td class="td-status">  
+                        <?php if($vo['status'] == '已启用'): ?>
+                        <span class="label label-success radius"><?php echo $vo['status']; ?></span>
+                        <?php else: ?>
+                        <span class="label radius"><?php echo $vo['status']; ?></span>
+                        <?php endif; ?>
+                    </td>
                 </tr>
-                <tr>
-                    <td>服务器IP地址</td>
-                    <td><?php echo \think\Request::instance()->ip(); ?></td>
-                </tr>
-                <tr>
-                    <td>服务器域名</td>
-                    <td><?php echo \think\Request::instance()->domain(); ?></td>
-                </tr>
-                <tr>
-                    <td>当前 PHP 版本</td>
-                    <td><?php echo PHP_VERSION; ?></td>
-                </tr>
-                <tr>
-                    <td>服务器 OS 版本</td>
-                    <td><?php echo PHP_OS; ?></td>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+
                 </tbody>
             </table>
         </article>
-        <footer class="footer">
-            <p>
-                Copyright &copy;2018 教学管理系统 v1.0 All Rights Reserved.
-        </footer>
     </div>
 </section>
 
@@ -178,7 +182,71 @@
 <!--/_footer /作为公共模版分离出去-->
 
 
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+    /*
+        参数解释：
+        title	标题
+        url		请求的url
+        id		需要操作的数据id
+        w		弹出层宽度（缺省调默认值）
+        h		弹出层高度（缺省调默认值）
+    */
+    /*管理员-增加*/
 
+    function admin_add(title,url,w,h){
+        $.post(url);
+        layer_show(title,url,w,h);
+    }
+
+
+    /*管理员-删除*/
+    function admin_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            //此处请求后台程序，下方是成功后的前台处理……
+            $.get("<?php echo url('user/deleteUser'); ?>",{id:id})
+
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!',{icon:1,time:1000});
+        });
+    }
+    /*管理员-编辑*/
+    function admin_edit(title,url,id,w,h){
+        $.get(url,{id:id}); //执行控制器中的编辑操作
+        layer_show(title,url,w,h);
+    }
+    /*管理员-停用*/
+    function admin_stop(obj,id){
+
+        layer.confirm('确认要停用吗？',function(index){
+            //此处请求后台程序，下方是成功后的前台处理……
+            $.get("<?php echo url('user/setStatus'); ?>",{id:id});
+
+            $(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,'+id+')" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
+            $(obj).remove();
+            layer.msg('已停用!',{icon: 5,time:1000});
+        });
+    }
+
+    /*管理员-启用*/
+    function admin_start(obj,id){
+        layer.confirm('确认要启用吗？',function(index){
+            //此处请求后台程序，下方是成功后的前台处理……
+            $.get("<?php echo url('user/setStatus'); ?>",{id:id});
+
+            $(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,'+id+')" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+            $(obj).remove();
+            layer.msg('已启用!', {icon: 6,time:1000});
+        });
+    }
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
 
 
 </body>

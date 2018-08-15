@@ -6,7 +6,7 @@ use think\Controller;
 //use app\index\model\Teacher;
 use think\Request;
 
-class Grade extends Controller
+class Grade extends Base
 {
 
     protected $db;

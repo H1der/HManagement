@@ -5,7 +5,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Request;
 
-class Student extends Controller
+class Student extends Base
 {
     //学生列表首页
     public function index()

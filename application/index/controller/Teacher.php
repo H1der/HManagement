@@ -5,7 +5,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Request;
 
-class Teacher extends Controller
+class Teacher extends Base
 {
 
     protected $db;

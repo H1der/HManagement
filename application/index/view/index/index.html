@@ -17,8 +17,8 @@
     <div class="Hui-article">
         <article class="cl pd-20">
             <p class="f-20 text-success">欢迎使用教学管理系统</p>
-            <p>登录次数：{$Think.session.user_info.login_count} </p>
-            <p>上次登录IP：{$Request.ip} 上次登录时间：{:date("Y-m-d H:i:s",$Think.session.user_info.login_time)}</p>
+            <p>上次登录IP：{$Request.ip}</p>
+            <p>登录时间：{:date("Y-m-d H:i:s",time())}</p>
             <table class="table table-border table-bordered table-bg mt-20">
                 <thead>
                 <tr>
