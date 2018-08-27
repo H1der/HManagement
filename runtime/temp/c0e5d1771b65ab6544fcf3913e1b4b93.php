@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\student\add.html";i:1533886889;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\student\add.html";i:1535335200;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -171,8 +171,8 @@
                 dataType: "json",
                 success: function (data) {
                     if (data.status == 1) {
-                        alert(data.message);
-
+                        //alert(data.message);
+                        layer.msg(data.message, {icon: 6, time: 1000});
                     } else {
                         alert(data.message);
 

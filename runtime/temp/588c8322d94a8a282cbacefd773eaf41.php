@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\wamp64\www\HManagement\public/../application/index\view\user\login.html";i:1533053256;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"G:\wamp64\www\HManagement\public/../application/index\view\user\login.html";i:1535336552;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -20,8 +20,8 @@
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script><![endif]-->
     <title>后台登录 - 教学管理系统</title>
-    <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-    <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+    <meta name="keywords" content="教学管理系统">
+    <meta name="description" content="教学管理系统">
 </head>
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value=""/>

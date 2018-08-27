@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\index\index.html";i:1534319145;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1534317845;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\index\index.html";i:1534319145;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1534319544;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -106,7 +106,7 @@
         </dl>
 
         <dl id="menu-admin">
-            <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe62d;</i>管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="<?php echo url('user/index'); ?>" title="管理员列表">管理员列表</a></li>
