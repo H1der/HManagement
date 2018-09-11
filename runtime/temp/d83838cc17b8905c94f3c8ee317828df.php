@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\teacher\index.html";i:1536675422;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:76:"G:\wamp64\www\HManagement\public/../application/index\view\student\show.html";i:1536675189;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -28,8 +28,8 @@
 
 
 <title><?php echo (isset($title) && ($title !== '')?$title:"标题"); ?></title>
-<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+<meta name="keywords" content="<?php echo (isset($keywords) && ($keywords !== '')?$keywords:'关键字'); ?>">
+<meta name="description" content="<?php echo (isset($desc) && ($desc !== '')?$desc:'描述'); ?>">
 
 
 </head>
@@ -127,8 +127,8 @@
     <nav class="breadcrumb">
         <i class="Hui-iconfont">&#xe67f;</i>
         首页 <span class="c-gray en">&gt;</span>
-        教师管理 <span class="c-gray en">&gt;</span>
-        教师列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+        学生管理 <span class="c-gray en">&gt;</span>
+        学生列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
                href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
     </nav>
     <div class="Hui-article">
@@ -138,19 +138,18 @@
 				<span class="l">
 					<!--<a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius">-->
 						<!--<i class="Hui-iconfont">&#xe6e2;</i>-->
-						<!--批量删除-->
+						<!--批量恢复-->
 					<!--</a>-->
                     <input type="text" name="keyword" id="keyword" class="input-text radius" style="width: 200px">
                     <a href="javascript:;"onclick="member_find($('#keyword').val())" class="btn btn-success radius">
 						<i class="Hui-iconfont">&#xe683;</i>
 						查找
 					</a>
-					<a href="javascript:;" onclick="member_add('添加教师','<?php echo url("teacher/add"); ?>','','510')" class="btn btn-primary radius">
+					<a href="javascript:;" onclick="member_add('添加学生','<?php echo url("student/add"); ?>','','510')" class="btn btn-primary radius">
 						<i class="Hui-iconfont">&#xe600;</i>
-						添加教师
+						添加学生
                     </a>
 				</span>
-                <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
             </div>
             <div class="mt-20">
                 <table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -158,64 +157,70 @@
                     <tr class="text-c">
                         <th width="50">ID</th>
                         <th width="50">姓名</th>
-                        <th width="40">学历</th>
-                        <th width="70">毕业学校</th>
+                        <th width="30">性别</th>
+                        <th width="30">年龄</th>
                         <th width="90">手机号</th>
-                        <th width="120">入职时间</th>
-                        <th width="180">负责班级</th>
-                        <th width="70">状态</th>
+                        <th width="150">邮箱</th>
+                        <th width="100">入学时间</th>
+                        <th width="160">班级</th>
+                        <th width="50">状态</th>
                         <th width="100">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if(is_array($teacherList) || $teacherList instanceof \think\Collection || $teacherList instanceof \think\Paginator): if( count($teacherList)==0 ) : echo "" ;else: foreach($teacherList as $key=>$vo): ?>
                     <tr class="text-c">
 
-                        <td><?php echo $vo['id']; ?></td>
-                        <td><?php echo $vo['name']; ?></td>
-                        <td><?php echo $vo['degree']; ?></td>
-                        <td><?php echo $vo['school']; ?></td>
-                        <td><?php echo $vo['mobile']; ?></td>
-                        <td><?php echo $vo['hiredate']; ?></td>
-                        <td><?php echo $vo['grade']; ?></td>
+                        <td><?php echo $student_info['id']; ?></td>
+                        <td><?php echo $student_info['name']; ?></td>
+                        <td><?php echo $student_info['sex']; ?></td>
+                        <td><?php echo $student_info['age']; ?></td>
+                        <td><?php echo $student_info['mobile']; ?></td>
+                        <td><?php echo $student_info['email']; ?></td>
+                        <td><?php echo $student_info['start_time']; ?></td>
+                        <td><?php echo $student_info['grade']['name']; ?></td>
+
 
                         <td class="td-status">
                             <!--根据当前班级表中status值来确定显示内容-->
-                            <?php if($vo['status'] == 1): ?>
+                            <?php if($student_info['status'] == 1): ?>
                             <span class="label label-success radius">已启用</span>
                             <?php else: ?>
                             <span class="label radius">已停用</span>
                             <?php endif; ?>
 
                         </td>
+
+
                         <td class="td-manage">
-                            <?php if($vo['status'] == 1): ?>
-                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                            <?php if($student_info['status'] == 1): ?>
+                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $student_info['id']; ?>')" href="javascript:;"
                                title="停用">
                                 <i class="Hui-iconfont">&#xe631;</i>
                             </a>
                             <?php else: ?>
-                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
-                               title="停用">
+                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $student_info['id']; ?>')" href="javascript:;"
+                               title="启用">
                                 <i class="Hui-iconfont">&#xe615;</i>
                             </a>
                             <?php endif; ?>
-                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','<?php echo url("teacher/edit",["id"=>$vo["id"]]); ?>','','510')"
+                            <a title="编辑" href="javascript:;" onclick="member_edit('学生编辑','<?php echo url("student/edit",["id"=>$student_info["id"]]); ?>','','510')"
                             class="ml-5" style="text-decoration:none">
                             <i class="Hui-iconfont">&#xe6df;</i>
                             </a>
-                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $vo['id']; ?>')" class="ml-5"
+                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $student_info['id']; ?>')" class="ml-5"
                                style="text-decoration:none">
                                 <i class="Hui-iconfont">&#xe6e2;</i>
                             </a>
                         </td>
                     </tr>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
                 </table>
             </div>
+            <!--显示分页按钮,事先要将bootstrap导入css和js-->
+
         </article>
     </div>
+
 </section>
 
 
@@ -247,8 +252,6 @@
         });
     });
 
-    /* */
-
     /*用户-添加*/
     function member_add(title, url, w, h) {
         layer_show(title, url, w, h);
@@ -263,7 +266,7 @@
     function member_stop(obj, id) {
         layer.confirm('确认要停用吗？', function (index) {
             //此处请求后台程序，下方是成功后的前台处理……
-            $.get("<?php echo url('teacher/setStatus'); ?>", {id: id});
+            $.get("<?php echo url('student/setStatus'); ?>", {id: id});
 
             $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
             $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
@@ -276,7 +279,7 @@
     function member_start(obj, id) {
         layer.confirm('确认要启用吗？', function (index) {
             //此处请求后台程序，下方是成功后的前台处理……
-            $.get("<?php echo url('teacher/setStatus'); ?>", {id: id});
+            $.get("<?php echo url('student/setStatus'); ?>", {id: id});
 
             $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
             $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
@@ -284,12 +287,11 @@
             layer.msg('已启用!', {icon: 6, time: 1000});
         });
     }
-
     /*用户-查找*/
     function member_find(id) {
         // $.get(url);
-        $.get("<?php echo url('teacher/show'); ?>",{id:id});
-        window.location.href = "show?name="+id;
+        $.get("<?php echo url('student/show'); ?>",{id:id});
+        window.location.href = "show?id="+id;
     }
 
     /*用户-编辑*/
@@ -300,8 +302,7 @@
 
     /*用户-删除*/
     function member_del(obj, id) {
-        //请求服务器脚本处理删除
-        $.get("<?php echo url('teacher/delete'); ?>", {id: id});
+        $.get("<?php echo url('student/delete'); ?>", {id: id});
         layer.confirm('确认要删除吗？', function (index) {
             $(obj).parents("tr").remove();
             layer.msg('已删除!', {icon: 1, time: 1000});

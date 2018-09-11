@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\teacher\index.html";i:1536675422;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:76:"G:\wamp64\www\HManagement\public/../application/index\view\teacher\show.html";i:1536675547;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -150,7 +150,7 @@
 						添加教师
                     </a>
 				</span>
-                <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
+
             </div>
             <div class="mt-20">
                 <table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -168,20 +168,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if(is_array($teacherList) || $teacherList instanceof \think\Collection || $teacherList instanceof \think\Paginator): if( count($teacherList)==0 ) : echo "" ;else: foreach($teacherList as $key=>$vo): ?>
                     <tr class="text-c">
 
-                        <td><?php echo $vo['id']; ?></td>
-                        <td><?php echo $vo['name']; ?></td>
-                        <td><?php echo $vo['degree']; ?></td>
-                        <td><?php echo $vo['school']; ?></td>
-                        <td><?php echo $vo['mobile']; ?></td>
-                        <td><?php echo $vo['hiredate']; ?></td>
-                        <td><?php echo $vo['grade']; ?></td>
+                        <td><?php echo $teacher_info['id']; ?></td>
+                        <td><?php echo $teacher_info['name']; ?></td>
+                        <td><?php echo $teacher_info['degree']; ?></td>
+                        <td><?php echo $teacher_info['school']; ?></td>
+                        <td><?php echo $teacher_info['mobile']; ?></td>
+                        <td><?php echo $teacher_info['hiredate']; ?></td>
+                        <td><?php echo $teacher_info['grade']['name']; ?></td>
 
                         <td class="td-status">
                             <!--根据当前班级表中status值来确定显示内容-->
-                            <?php if($vo['status'] == 1): ?>
+                            <?php if($teacher_info['status'] == 1): ?>
                             <span class="label label-success radius">已启用</span>
                             <?php else: ?>
                             <span class="label radius">已停用</span>
@@ -189,28 +188,27 @@
 
                         </td>
                         <td class="td-manage">
-                            <?php if($vo['status'] == 1): ?>
-                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                            <?php if($teacher_info['status'] == 1): ?>
+                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $teacher_info['id']; ?>')" href="javascript:;"
                                title="停用">
                                 <i class="Hui-iconfont">&#xe631;</i>
                             </a>
                             <?php else: ?>
-                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $teacher_info['id']; ?>')" href="javascript:;"
                                title="停用">
                                 <i class="Hui-iconfont">&#xe615;</i>
                             </a>
                             <?php endif; ?>
-                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','<?php echo url("teacher/edit",["id"=>$vo["id"]]); ?>','','510')"
+                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','<?php echo url("teacher/edit",["id"=>$teacher_info["id"]]); ?>','','510')"
                             class="ml-5" style="text-decoration:none">
                             <i class="Hui-iconfont">&#xe6df;</i>
                             </a>
-                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $vo['id']; ?>')" class="ml-5"
+                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $teacher_info['id']; ?>')" class="ml-5"
                                style="text-decoration:none">
                                 <i class="Hui-iconfont">&#xe6e2;</i>
                             </a>
                         </td>
                     </tr>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
                 </table>
             </div>

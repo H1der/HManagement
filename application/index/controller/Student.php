@@ -42,6 +42,21 @@ class Student extends Base
         }
     }
 
+    public function show(Request $request)
+    {
+        //获取到要编辑的班级ID
+        $student_name = $request->param('name');
+
+        //根据ID进行查询
+        $result = \app\index\model\Student::where('name',$student_name)->find();
+
+        //给当前编辑模板赋值
+        $this->assign('student_info', $result);
+
+        return $this->fetch();
+
+    }
+
     //学生编辑
     public function edit(Request $request)
     {

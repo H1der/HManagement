@@ -53,6 +53,21 @@ class Teacher extends Base
     }
 
 
+    public function show(Request $request)
+    {
+        //获取到要编辑的班级ID
+        $teacher_name = $request->param('name');
+
+        //根据ID进行查询
+        $result = \app\index\model\Teacher::where('name',$teacher_name)->find();
+
+        //给当前编辑模板赋值
+        $this->assign('teacher_info', $result);
+
+        return $this->fetch();
+
+    }
+
     //教师编辑
     public function edit(Request $request)
     {
@@ -64,7 +79,6 @@ class Teacher extends Base
 
         //给当前教师编辑页面模板赋值
         $this->assign('teacher_info', $result);
-        //todo:老师学历选中
         //将班级表中所有数据赋值给当前模板
         $this->assign('gradeList', \app\index\model\Grade::all());
 
