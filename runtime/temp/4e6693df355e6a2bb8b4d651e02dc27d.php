@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\grade\index.html";i:1536633288;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\grade\index.html";i:1536655721;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -271,7 +271,7 @@
     function member_find(id) {
         // $.get(url);
         $.get("<?php echo url('grade/show'); ?>",{id:id});
-        window.location.href = "show?id="+id;
+        window.location.href = "show?name="+id;
 
         // $.ajax({
         //     type: "POST",

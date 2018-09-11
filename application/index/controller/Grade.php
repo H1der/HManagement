@@ -36,10 +36,10 @@ class Grade extends Base
     public function show(Request $request)
     {
         //获取到要编辑的班级ID
-        $grade_id = $request->param('id');
+        $grade_name = $request->param('name');
 
         //根据ID进行查询
-        $result = \app\index\model\Grade::get($grade_id);
+        $result = \app\index\model\Grade::where('name',$grade_name)->find();
 
         //给当前编辑模板赋值
         $this->assign('grade_info', $result);
