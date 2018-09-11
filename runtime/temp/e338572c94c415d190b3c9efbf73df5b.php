@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:75:"G:\wamp64\www\HManagement\public/../application/index\view\grade\index.html";i:1536633288;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:74:"G:\wamp64\www\HManagement\public/../application/index\view\grade\show.html";i:1536633265;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536585313;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -137,9 +137,9 @@
             <div class="cl pd-5 bg-1 bk-gray mt-20">
 				<span class="l">
 					<!--<a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius">-->
-						<!--<i class="Hui-iconfont">&#xe6e2;</i>-->
-						<!--批量删除-->
-					<!--</a>-->
+                    <!--<i class="Hui-iconfont">&#xe6e2;</i>-->
+                    <!--批量删除-->
+                    <!--</a>-->
 
                     <input type="text" name="keyword" id="keyword" class="input-text radius" style="width: 200px">
                     <a href="javascript:;"onclick="member_find($('#keyword').val())" class="btn btn-success radius">
@@ -151,7 +151,6 @@
 						添加班级
                     </a>
 				</span>
-                <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
             </div>
             <div class="mt-20">
                 <table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -168,17 +167,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if(is_array($gradeList) || $gradeList instanceof \think\Collection || $gradeList instanceof \think\Paginator): if( count($gradeList)==0 ) : echo "" ;else: foreach($gradeList as $key=>$vo): ?>
                     <tr class="text-c">
-                        <td><?php echo $vo['id']; ?></td>
-                        <td><?php echo $vo['name']; ?></td>
-                        <td><?php echo $vo['length']; ?></td>
-                        <td><?php echo $vo['price']; ?></td>
-                        <td><?php echo $vo['create_time']; ?></td>
-                        <td><?php echo $vo['teacher']; ?></td>
+                        <td><?php echo $grade_info['id']; ?></td>
+                        <td><?php echo $grade_info['name']; ?></td>
+                        <td><?php echo $grade_info['length']; ?></td>
+                        <td><?php echo $grade_info['price']; ?></td>
+                        <td><?php echo $grade_info['create_time']; ?></td>
+                        <td><?php echo $grade_info['teacher']['name']; ?></td>
                         <td class="td-status">
                             <!--根据当前班级表中status值来确定显示内容-->
-                            <?php if($vo['status'] == 1): ?>
+                            <?php if($grade_info['status'] == 1): ?>
                             <span class="label label-success radius">已启用</span>
                             <?php else: ?>
                             <span class="label radius">已停用</span>
@@ -186,28 +184,27 @@
 
                         </td>
                         <td class="td-manage">
-                            <?php if($vo['status'] == 1): ?>
-                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                            <?php if($grade_info['status'] == 1): ?>
+                            <a style="text-decoration:none" onClick="member_stop(this,'<?php echo $grade_info['id']; ?>')" href="javascript:;"
                                title="停用">
                                 <i class="Hui-iconfont">&#xe631;</i>
                             </a>
                             <?php else: ?>
-                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $vo['id']; ?>')" href="javascript:;"
+                            <a style="text-decoration:none" onClick="member_start(this,'<?php echo $grade_info['id']; ?>')" href="javascript:;"
                                title="停用">
                                 <i class="Hui-iconfont">&#xe615;</i>
                             </a>
                             <?php endif; ?>
-                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','<?php echo url("grade/edit",["id"=>$vo["id"]]); ?>','','510')"
+                            <a title="编辑" href="javascript:;" onclick="member_edit('班级编辑','<?php echo url("grade/edit",["id"=>$grade_info["id"]]); ?>','','510')"
                             class="ml-5" style="text-decoration:none">
                             <i class="Hui-iconfont">&#xe6df;</i>
                             </a>
-                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $vo['id']; ?>')" class="ml-5"
+                            <a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $grade_info['id']; ?>')" class="ml-5"
                                style="text-decoration:none">
                                 <i class="Hui-iconfont">&#xe6e2;</i>
                             </a>
                         </td>
                     </tr>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
                     </tbody>
                 </table>
             </div>

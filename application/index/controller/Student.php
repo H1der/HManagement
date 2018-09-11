@@ -51,7 +51,7 @@ class Student extends Base
         $result->grade = $result->grade->name;
 
 
-        $this->assign('title', '编辑班级');
+        $this->assign('title', '编辑学生');
 
         $this->assign('student_info', $result);
 

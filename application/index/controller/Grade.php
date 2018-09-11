@@ -20,16 +20,32 @@ class Grade extends Base
     //班级列表首页
     public function index()
     {
-        $gradeList = \app\index\model\Grade::all();
+       $gradeList = \app\index\model\Grade::all();
+
 //        $count = count($this->db);
         $count = \app\index\model\Grade::count();
         foreach ($gradeList as $value) {
-            $value->teacher = isset($value->teacher->name)? $value->teacher->name : '<span style="color:red;">未分配</span>';
+            $value->teacher = isset($value->teacher->name) ? $value->teacher->name : '<span style="color:red;">未分配</span>';
         }
         $this->assign('title', '班级列表');
         $this->assign('gradeList', $gradeList);
         $this->assign('count', $count);
         return $this->fetch();
+    }
+
+    public function show(Request $request)
+    {
+        //获取到要编辑的班级ID
+        $grade_id = $request->param('id');
+
+        //根据ID进行查询
+        $result = \app\index\model\Grade::get($grade_id);
+
+        //给当前编辑模板赋值
+        $this->assign('grade_info', $result);
+
+        return $this->fetch();
+
     }
 
     //班级状态变更

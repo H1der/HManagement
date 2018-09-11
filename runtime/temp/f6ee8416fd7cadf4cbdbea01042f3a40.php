@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\student\index.html";i:1534230012;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1534319544;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\wamp64\www\HManagement\public/../application/index\view\student\index.html";i:1535965921;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\header.html";i:1534233035;s:65:"G:\wamp64\www\HManagement\application\index\view\public\menu.html";i:1536464236;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -106,7 +106,7 @@
         </dl>
 
         <dl id="menu-admin">
-            <dt><i class="Hui-iconfont">&#xe62d;</i>管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe62d;</i>添加班级管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="<?php echo url('user/index'); ?>" title="管理员列表">管理员列表</a></li>
@@ -136,9 +136,14 @@
 
             <div class="cl pd-5 bg-1 bk-gray mt-20">
 				<span class="l">
-					<a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius">
-						<i class="Hui-iconfont">&#xe6e2;</i>
-						批量恢复
+					<!--<a href="javascript:;" onclick="unDelete()" class="btn btn-danger radius">-->
+						<!--<i class="Hui-iconfont">&#xe6e2;</i>-->
+						<!--批量恢复-->
+					<!--</a>-->
+                    <input type="text" class="input-text radius" style="width: 200px">
+                    <a href="javascript:;" onclick="unDelete()" class="btn btn-success radius">
+						<i class="Hui-iconfont">&#xe683;</i>
+						查找
 					</a>
 					<a href="javascript:;" onclick="member_add('添加学生','<?php echo url("student/add"); ?>','','510')" class="btn btn-primary radius">
 						<i class="Hui-iconfont">&#xe600;</i>

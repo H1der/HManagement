@@ -99,7 +99,7 @@ class Teacher extends Base
     //渲染教师添加界面
     public function add()
     {
-        $this->assign('title', '添加班级');
+        $this->assign('title', '添加教师');
 
         //将班级表中所有数据赋值给当前模板
         $this->assign('gradeList', \app\index\model\Grade::all());

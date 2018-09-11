@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"G:\wamp64\www\HManagement\public/../application/index\view\grade\add.html";i:1535335626;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"G:\wamp64\www\HManagement\public/../application/index\view\grade\add.html";i:1535335648;s:65:"G:\wamp64\www\HManagement\application\index\view\public\base.html";i:1533718727;s:65:"G:\wamp64\www\HManagement\application\index\view\public\meta.html";i:1532964505;s:67:"G:\wamp64\www\HManagement\application\index\view\public\footer.html";i:1532964423;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -130,7 +130,6 @@
                     if (data.status == 1) {
                         // alert(data.message);
                         layer.msg(data.message, {icon: 6, time: 1000});
-                        window.location.href="<?php echo url('grade/add'); ?>";
                     } else {
                         // alert(data.message);
                         layer.msg(data.message, {icon: 1, time: 1000});
